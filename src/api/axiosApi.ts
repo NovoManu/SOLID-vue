@@ -5,7 +5,7 @@ export class AxiosApi extends BaseApi {
   constructor() {
     super()
   }
-  async fetch({ url }): Promise<any> {
+  async fetch(url: string): Promise<any> {
     const { data } = await axios.get(`${this.baseUrl}${url}`)
     return data
   }
