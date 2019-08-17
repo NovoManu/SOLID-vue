@@ -18,7 +18,8 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import { Todo } from '@/types'
-import { Api } from '@/api'
+import { AxiosApi } from '@/api/axiosApi'
+import { BaseApi } from '@/api/baseApi'
 import Header from '@/components/Header.vue'
 import TodoList from '@/components/TodoList.vue'
 import TodoCard from '@/components/TodoCard.vue'
@@ -32,8 +33,9 @@ export default class Home extends Vue {
     this.todos = await this.fetchTodos()
   }
   async fetchTodos(): Promise<Todo[]> {
-    const api = new Api('todos')
-    return await api.fetch()
+    // const api = new AxiosApi()
+    const api = new BaseApi()
+    return await api.fetch('todos')
   }
 }
 </script>
