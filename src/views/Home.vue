@@ -2,7 +2,15 @@
   <div>
     <Header listName="My new todo list" />
     <main>
-      <TodoList :todos="todos" />
+      <TodoList>
+        <TodoCard
+          v-for="{ id, title, completed } in todos"
+          :key="id"
+          :title="title"
+          :completed="completed"
+          class="todo-list__task"
+        />
+      </TodoList>
     </main>
   </div>
 </template>
@@ -13,9 +21,10 @@ import { Todo } from '@/types'
 import { Api } from '@/api'
 import Header from '@/components/Header.vue'
 import TodoList from '@/components/TodoList.vue'
+import TodoCard from '@/components/TodoCard.vue'
 
 @Component({
-  components: { Header, TodoList }
+  components: { Header, TodoList, TodoCard }
 })
 export default class Home extends Vue {
   todos: Todo[] = []
