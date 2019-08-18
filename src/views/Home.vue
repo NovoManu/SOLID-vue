@@ -3,12 +3,12 @@
     <Header listName="My new todo list" />
     <main>
       <TodoList>
-<!--        <TodoCard-->
-<!--          v-for="{ id, title, completed } in todos"-->
-<!--          :key="id"-->
-<!--          :title="title"-->
-<!--          :completed="completed"-->
-<!--        />-->
+        <!--<TodoCard-->
+        <!--v-for="{ id, title, completed } in todos"-->
+        <!--:key="id"-->
+        <!--:title="title"-->
+        <!--:completed="completed"-->
+        <!--/>-->
         <TodoRow
           v-for="{ id, title, completed } in todos"
           :key="id"
