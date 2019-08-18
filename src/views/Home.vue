@@ -3,11 +3,18 @@
     <Header listName="My new todo list" />
     <main>
       <TodoList>
-        <TodoCard
-          v-for="todo in todos"
-          :key="todo.id"
-          :todo="todo"
-          class="todo-list__task"
+<!--        <TodoCard-->
+<!--          v-for="{ id, title, completed } in todos"-->
+<!--          :key="id"-->
+<!--          :title="title"-->
+<!--          :completed="completed"-->
+<!--        />-->
+        <TodoRow
+          v-for="{ id, title, completed } in todos"
+          :key="id"
+          :id="id"
+          :title="title"
+          :completed="completed"
         />
       </TodoList>
     </main>
@@ -21,9 +28,10 @@ import { Api } from '@/api/api'
 import Header from '@/components/Header.vue'
 import TodoList from '@/components/TodoList.vue'
 import TodoCard from '@/components/TodoCard.vue'
+import TodoRow from '@/components/TodoRow.vue'
 
 @Component({
-  components: { Header, TodoList, TodoCard }
+  components: { Header, TodoList, TodoCard, TodoRow }
 })
 export default class Home extends Vue {
   todos: Todo[] = []
