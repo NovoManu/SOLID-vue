@@ -1,10 +1,19 @@
-<template functional>
+<template>
   <div class="todo-list__task">
-    <span :class="{ 'todo-list__task--completed': props.completed }">
-      {{ props.title }}
+    <span :class="{ 'todo-list__task--completed': todo.completed }">
+      {{ todo.title }}
     </span>
   </div>
 </template>
+<script lang="ts">
+import { Component, Vue, Prop } from 'vue-property-decorator'
+import { Todo } from '@/types'
+
+@Component
+export default class TodoCard extends Vue {
+  @Prop({ required: true }) todo!: Todo
+}
+</script>
 <style lang="scss" scoped>
 .todo-list {
   &__task {

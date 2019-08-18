@@ -4,10 +4,9 @@
     <main>
       <TodoList>
         <TodoCard
-          v-for="{ id, title, completed } in todos"
-          :key="id"
-          :title="title"
-          :completed="completed"
+          v-for="todo in todos"
+          :key="todo.id"
+          :todo="todo"
           class="todo-list__task"
         />
       </TodoList>
