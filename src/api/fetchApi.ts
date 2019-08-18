@@ -1,6 +1,7 @@
 import { BaseApi } from '@/api/baseApi'
+import { IApi } from '@/types'
 
-export class FetchApi extends BaseApi {
+export class FetchApi extends BaseApi implements IApi {
   constructor() {
     super()
   }

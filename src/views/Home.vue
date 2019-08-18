@@ -23,7 +23,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { Todo } from '@/types'
+import { ITodo, IApi } from '@/types'
 import { Api } from '@/api/api'
 import Header from '@/components/Header.vue'
 import TodoList from '@/components/TodoList.vue'
@@ -33,12 +33,12 @@ import TodoRow from '@/components/TodoRow.vue'
 @Component({
   components: { Header, TodoList, TodoCard, TodoRow }
 })
-export default class Home extends Vue {
-  todos: Todo[] = []
+export default class Home extends Vue implements IApi {
+  todos: ITodo[] = []
   async mounted() {
-    this.todos = await this.fetchTodos()
+    this.todos = await this.fetch()
   }
-  async fetchTodos(): Promise<Todo[]> {
+  async fetch(): Promise<ITodo[]> {
     const api = new Api()
     return await api.fetch('todos')
   }
